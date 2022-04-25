@@ -47,6 +47,10 @@ body {
   color: hsl(180, 29%, 50%);
   font-weight: 700;
 }
+.skills-clicked {
+  color: hsl(180, 52%, 96%);
+  background-color: hsl(180, 29%, 50%);
+}
 .featured {
   background-color: hsl(180, 14%, 20%);
 }

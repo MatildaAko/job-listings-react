@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SkillsButton = ({ value, index }) => {
+  const [skillsClicked, setSkillsClicked] = useState(false)
+  function handleSkillsClicked() {
+    setSkillsClicked(!skillsClicked);
+  }
   return (
-    <button className="skills-btn" key={index} onClick={e => e.stopPropagation()}>
+    <button className={`${skillsClicked ? "skills-clicked" : ""} skills-btn`} key={index} onClick={e => { handleSkillsClicked(); e.stopPropagation(); }}>
       {value}
     </button>
   );
