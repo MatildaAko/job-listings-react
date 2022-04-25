@@ -1,38 +1,101 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: "League Spartan", sans-serif;
+}
+body {
+  background-color: hsl(180, 52%, 96%);
+}
+.jobs-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px 2px hsl(180, 31%, 95%);
+  margin: 20px;
+
+  background-color: hsl(0, 0%, 100%);
+}
+.job-info {
+  margin-left: 30px;
+}
+.company-name {
+  color: hsl(180, 29%, 50%);
+}
+.job-button,
+.skills-btn {
+  border: none;
+  font-size: 13px;
+  margin: 0 5px;
+}
+.job-button {
+  padding: 5px 7px 2px;
+  color: white;
+  border-radius: 10px;
+}
+.new {
+  background-color: hsl(180, 29%, 50%);
+}
+.skills-btn {
+  padding: 7px;
+  border-radius: 3px;
+  background-color: hsl(180, 52%, 96%);
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+}
+.featured {
+  background-color: hsl(180, 14%, 20%);
+}
+.job-description-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.skills-section {
+  display: flex;
+  align-items: center;
+}
+ul {
+  display: inline-block;
+  padding: 0;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li {
+  display: inline;
+}
+li:after {
+  content: " \00b7";
+  padding: 0.9rem;
+  padding-left: 0.6rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+li:last-child:after {
+  content: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 0;
+  letter-spacing: 0.05rem;
+  color: hsl(180, 14%, 20%);
+  cursor: pointer;
+}
+.title-clicked {
+  color: hsl(180, 29%, 50%);
+}
+.posted {
+  color: hsl(180, 8%, 52%);
 }
 
-.App-link {
-  color: #61dafb;
+img {
+  width: 70px;
+}
+.card-clicked {
+  border-left: 3px solid hsl(180, 29%, 50%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
