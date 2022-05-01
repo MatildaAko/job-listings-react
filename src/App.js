@@ -1,4 +1,4 @@
-import AllCards from './allCards';
+import AllCards from './AllCards';
 import './App.css';
 
 function App() {

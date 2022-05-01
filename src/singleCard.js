@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SkillsButton from "./SkillsButton";
 import JobTitle from "./JobTitle"
 
-const SingleCard = ({ job }) => {
+const SingleCard = ({ job, setFilteredRole, filteredRole, setFilteredLevel, filteredLevel, setFilteredLanguage, filteredLanguage }) => {
   const [cardClicked, setCardClicked] = useState(false);
   return (
     <div className={`${cardClicked ? "card-clicked" : ""} jobs-card`} key={job.company} onClick={() => setCardClicked(!cardClicked)}>
@@ -27,10 +27,10 @@ const SingleCard = ({ job }) => {
         </section>
       </section>
       <section className="skills-section">
-        <SkillsButton value={job.level} index={job.level} />
-        <SkillsButton value={job.role} index={job.role} />
+        <SkillsButton value={job.level} index={job.level} setFilteredValue={setFilteredLevel} filteredValue={filteredLevel} />
+        <SkillsButton value={job.role} index={job.role} setFilteredValue={setFilteredRole} filteredValue={filteredRole} />
         {job.languages.map((language, index) => (
-          <SkillsButton value={language} index={index} />
+          <SkillsButton value={language} index={index} setFilteredValue={setFilteredLanguage} filteredValue={filteredLanguage} />
         ))}
       </section>
     </div>
