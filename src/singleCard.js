@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import SkillsButton from "./SkillsButton";
-import JobTitle from "./JobTitle"
+import JobTitle from "./JobTitle";
 
-const SingleCard = ({ job, setFilteredRole, filteredRole, setFilteredLevel, filteredLevel, setFilteredLanguage, filteredLanguage }) => {
+const SingleCard = ({
+  job,
+  setFilteredRole,
+  filteredRole,
+  setFilteredLevel,
+  filteredLevel,
+  setFilteredLanguage,
+  filteredLanguage,
+  filterBy,
+  setFilterBy,
+}) => {
   const [cardClicked, setCardClicked] = useState(false);
+
   return (
     <div className={`${cardClicked ? "card-clicked" : ""} jobs-card`} key={job.company} onClick={() => setCardClicked(!cardClicked)}>
       <section className="job-description-section">
@@ -27,10 +38,51 @@ const SingleCard = ({ job, setFilteredRole, filteredRole, setFilteredLevel, filt
         </section>
       </section>
       <section className="skills-section">
-        <SkillsButton value={job.level} index={job.level} setFilteredValue={setFilteredLevel} filteredValue={filteredLevel} />
-        <SkillsButton value={job.role} index={job.role} setFilteredValue={setFilteredRole} filteredValue={filteredRole} />
+        <SkillsButton
+          value={job.level}
+          index={job.level}
+          clickFunction={(e) => {
+            if (!filterBy.includes(e.target.value)) {
+              setFilterBy(filterBy.concat(e.target.value));
+            }
+            if (!filteredLevel.includes(e.target.value)) {
+              // setFilteredLevel(() => e.target.value);
+              setFilteredLevel(() => {
+                return filteredLevel.concat(e.target.value);
+              });
+            }
+          }}
+        />
+        <SkillsButton
+          value={job.role}
+          index={job.role}
+          clickFunction={(e) => {
+            if (!filterBy.includes(e.target.value)) {
+              setFilterBy(filterBy.concat(e.target.value));
+            }
+            if (!filteredRole.includes(e.target.value)) {
+              // setFilteredRole(() => e.target.value);
+              setFilteredRole(() => {
+                return filteredRole.concat(e.target.value);
+              });
+            }
+          }}
+        />
         {job.languages.map((language, index) => (
-          <SkillsButton value={language} index={index} setFilteredValue={setFilteredLanguage} filteredValue={filteredLanguage} />
+          <SkillsButton
+            value={language}
+            index={index}
+            clickFunction={(e) => {
+              if (!filterBy.includes(e.target.value)) {
+                setFilterBy(filterBy.concat(e.target.value));
+              }
+              if (!filteredLanguage.includes(e.target.value)) {
+                setFilteredLanguage(() => {
+                  return filteredLanguage.concat(e.target.value);
+                });
+              }
+            }}
+          />
         ))}
       </section>
     </div>

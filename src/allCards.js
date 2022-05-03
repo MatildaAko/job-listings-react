@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import jobList from "./data.json";
 import SingleCard from "./singleCard";
 
-const AllCards = () => {
-  const [filteredRole, setFilteredRole] = useState("");
-  const [filteredLevel, setFilteredLevel] = useState("");
-  const [filteredLanguage, setFilteredLanguage] = useState([]);
-
+const AllCards = ({
+  filteredRole,
+  setFilteredRole,
+  filteredLevel,
+  setFilteredLevel,
+  filteredLanguage,
+  setFilteredLanguage,
+  filterBy,
+  setFilterBy,
+  // setSkillsClicked,
+  // skillsClicked,
+}) => {
   return jobList
     .filter((job) => {
       return filteredRole === "" ? job : job.role.includes(filteredRole);
@@ -15,7 +22,11 @@ const AllCards = () => {
       return filteredLevel === "" ? job : job.level.includes(filteredLevel);
     })
     .filter((job) => {
-      return filteredLanguage.length === 0 ? job : job.languages.find(language => { return filteredLanguage.includes(language);});
+      return filteredLanguage.length === 0
+        ? job
+        : job.languages.find((language) => {
+            return filteredLanguage.includes(language);
+          });
     })
     .map((job) => {
       return (
@@ -27,9 +38,13 @@ const AllCards = () => {
           setFilteredLevel={setFilteredLevel}
           filteredLanguage={filteredLanguage}
           setFilteredLanguage={setFilteredLanguage}
+          // filteredValue={filteredValue}
+          // setFilteredValue={setFilteredValue}
+          filterBy={filterBy}
+          setFilterBy={setFilterBy}
         />
       );
     });
-}
+};
 
 export default AllCards;

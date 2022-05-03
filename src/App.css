@@ -10,8 +10,10 @@ body {
   background-color: hsl(180, 52%, 96%);
 }
 .jobs-card {
-  display: flex;
   justify-content: space-between;
+}
+.jobs-card, .filter-section {
+  display: flex;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 2px;
@@ -31,6 +33,7 @@ body {
   border: none;
   font-size: 13px;
   margin: 0 5px;
+  cursor: pointer;
 }
 .job-button {
   padding: 5px 7px 2px;
@@ -47,7 +50,7 @@ body {
   color: hsl(180, 29%, 50%);
   font-weight: 700;
 }
-.skills-clicked {
+.skills-clicked, .close {
   color: hsl(180, 52%, 96%);
   background-color: hsl(180, 29%, 50%);
 }
@@ -102,4 +105,26 @@ img {
 .card-clicked {
   border-left: 3px solid hsl(180, 29%, 50%);
 }
+.close {
+  width: 14px;
+  padding: 6px;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+.closed {
+  background-color: black;
+}
 
+.filter-span {
+  display: flex;
+  align-items: center;
+}
+
+.filter-section {
+  background: white
+}
+
+.filter-section button {
+  margin-right: 0;
+  border-radius: 3px 0 0 3px;
+}

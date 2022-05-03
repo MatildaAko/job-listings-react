@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 
-const SkillsButton = ({ value, index, setFilteredValue, filteredValue }) => {
+const SkillsButton = ({ value, index, clickFunction }) => {
   const [skillsClicked, setSkillsClicked] = useState(false);
   function handleSkillsClicked(e) {
-    setSkillsClicked(!skillsClicked);
-    setFilteredValue(() => {
-      // console.log(typeof filteredValue);
-      return typeof filteredValue === 'string' ? e.target.value : filteredValue.concat(e.target.value)
-    });
+    clickFunction(e)
   }
-  console.log(filteredValue)
+
   return (
     <button
       value={value}
       className={`${skillsClicked ? "skills-clicked" : ""} skills-btn`}
       key={index}
+      onMouseEnter={() => setSkillsClicked(true)}
+      onMouseLeave={() => setSkillsClicked(false)}
       onClick={(e) => {
         handleSkillsClicked(e);
         e.stopPropagation();
