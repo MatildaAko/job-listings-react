@@ -1,6 +1,6 @@
 import React from "react";
 import jobList from "./data.json";
-import SingleCard from "./singleCard";
+import SingleCard from "./SingleCard";
 
 const AllCards = ({
   filteredRole,
@@ -10,9 +10,7 @@ const AllCards = ({
   filteredLanguage,
   setFilteredLanguage,
   filterBy,
-  setFilterBy,
-  // setSkillsClicked,
-  // skillsClicked,
+  setFilterBy
 }) => {
   return jobList
     .filter((job) => {

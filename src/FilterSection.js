@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import JobList from "./data.json";
+import React from "react";
 import SkillsButton from "./SkillsButton";
 
 import CloseButton from "./CloseButton";

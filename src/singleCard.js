@@ -46,7 +46,6 @@ const SingleCard = ({
               setFilterBy(filterBy.concat(e.target.value));
             }
             if (!filteredLevel.includes(e.target.value)) {
-              // setFilteredLevel(() => e.target.value);
               setFilteredLevel(() => {
                 return filteredLevel.concat(e.target.value);
               });
@@ -61,7 +60,6 @@ const SingleCard = ({
               setFilterBy(filterBy.concat(e.target.value));
             }
             if (!filteredRole.includes(e.target.value)) {
-              // setFilteredRole(() => e.target.value);
               setFilteredRole(() => {
                 return filteredRole.concat(e.target.value);
               });
